@@ -1,5 +1,13 @@
 package com.qa.pages;
 
-public class LoginPage {
+import org.openqa.selenium.support.PageFactory;
+
+import com.qa.base.TestBase;
+
+public class LoginPage extends TestBase {
+
+	public LoginPage() {
+		PageFactory.initElements(driver, this);
+	}
 
 }
