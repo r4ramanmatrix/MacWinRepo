@@ -1,15 +1,23 @@
 package com.qa.pages;
 
+import java.util.NoSuchElementException;
+
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.qa.base.TestBase;
+import com.qa.utils.InterfaceImplementation;
 
 public class LoginPage extends TestBase {
 
-	public LoginPage() {
-		PageFactory.initElements(driver, this);
+	InterfaceImplementation interfaceMethods = null;
+
+	public LoginPage(WebDriver sDriver) {
+		this.driver = sDriver;
+		PageFactory.initElements(sDriver, this);
+		interfaceMethods = new InterfaceImplementation();
 	}
 
 	@FindBy(xpath = "//*[contains(text(),'Log in')]")
@@ -24,8 +32,38 @@ public class LoginPage extends TestBase {
 	@FindBy(xpath = "//*[@type='submit' and @value='Log in'] ")
 	private WebElement loginButton;
 
+	@FindBy(xpath = "//*[@class='field-validation-error']/span")
+	private WebElement emailIdErrorMessage;
+
+	@FindBy(xpath = "//*[@class='validation-summary-errors']/span")
+	private WebElement errorMessage;
+
+	int count = 0;
+
 	public void clickOnLoginLink() {
 		loginLink.click();
+	}
+
+	public String pageTitle() {
+		return driver.getTitle();
+	}
+
+	public void enterUserCredentials(String username, String password) {
+
+		interfaceMethods.setText(emailBox, username);
+		interfaceMethods.setText(passwordBox, password);
+	}
+
+	public void clickOnLoginButton() {
+		loginButton.click();
+	}
+
+	public String getEmailErrorMessage() {
+		return interfaceMethods.getTextOfElement(emailIdErrorMessage);
+	}
+
+	public String getErrorMessage() {
+		return interfaceMethods.getTextOfElement(errorMessage);
 	}
 
 }

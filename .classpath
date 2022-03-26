@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="specialize_automation_BDD/src/main/java"/>
+	<classpathentry kind="src" path="specialize_automation_BDD/src/test/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="specialize_automation_BDD/target/classes"/>
+</classpath>
