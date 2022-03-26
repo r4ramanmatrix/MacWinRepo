@@ -15,20 +15,18 @@ import cucumber.api.java.en.When;
 
 public class StepDef extends TestBase {
 
-	LoginPage loginpage;
-
 	@Given("^user naviage to the \"([^\"]*)\" page$")
 	public void user_naviage_to_the_page(String url) throws Throwable {
 		TestBase.initialization(url);
-		loginpage = new LoginPage(driver);
 	}
 
-	@When("^user click on the login link$")
+	@When("^the user click on the login link$")
 	public void user_click_on_the_login_link() throws Throwable {
+		loginpage = new LoginPage(driver);
 		loginpage.clickOnLoginLink();
 	}
 
-	@Then("^user should be on the login page$")
+	@Then("^the user should be on the login page$")
 	public void user_should_be_on_the_login_page() throws Throwable {
 		Assert.assertEquals(loginpage.pageTitle(), PropertyReader.prop.getProperty("login_page_title"));
 	}
@@ -47,8 +45,9 @@ public class StepDef extends TestBase {
 		}
 	}
 
-	@Then("^user should be on the homepage$")
+	@Then("^the user should be on the homepage$")
 	public void user_should_be_on_the_homepage() throws Throwable {
-			
+
 	}
+
 }

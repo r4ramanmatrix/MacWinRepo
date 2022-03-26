@@ -1,7 +1,5 @@
 package com.qa.pages;
 
-import java.util.NoSuchElementException;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,11 +10,13 @@ import com.qa.utils.InterfaceImplementation;
 
 public class LoginPage extends TestBase {
 
+	WebDriver driver;
+
 	InterfaceImplementation interfaceMethods = null;
 
-	public LoginPage(WebDriver sDriver) {
-		this.driver = sDriver;
-		PageFactory.initElements(sDriver, this);
+	public LoginPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
 		interfaceMethods = new InterfaceImplementation();
 	}
 
