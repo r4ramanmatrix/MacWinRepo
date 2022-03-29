@@ -1,5 +1,7 @@
 package com.qa.stepdefinitions;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.testng.Assert;
@@ -15,6 +17,10 @@ import cucumber.api.java.en.When;
 
 public class StepDef extends TestBase {
 
+	public static List<String> allErrors = new ArrayList<String>();
+
+	LoginPage loginpage = null;
+
 	@Given("^user naviage to the \"([^\"]*)\" page$")
 	public void user_naviage_to_the_page(String url) throws Throwable {
 		TestBase.initialization(url);
@@ -22,8 +28,9 @@ public class StepDef extends TestBase {
 
 	@When("^the user click on the login link$")
 	public void user_click_on_the_login_link() throws Throwable {
-		loginpage = new LoginPage(driver);
+		loginpage = new LoginPage(TestBase.driver);
 		loginpage.clickOnLoginLink();
+
 	}
 
 	@Then("^the user should be on the login page$")
@@ -33,21 +40,20 @@ public class StepDef extends TestBase {
 
 	@Then("^user enters the below credentials and click on login button$")
 	public void user_enters_the_below_credentials_and_click_on_login_button(DataTable data) throws Throwable {
+
 		for (Map<String, String> tableDate : data.asMaps(String.class, String.class)) {
 			loginpage.enterUserCredentials(tableDate.get("USERNAME"), tableDate.get("PASSWORD"));
 			loginpage.clickOnLoginButton();
-			if (loginpage.getEmailErrorMessage().equalsIgnoreCase(PropertyReader.prop.getProperty("email_id_error"))
-					|| loginpage.getErrorMessage().equalsIgnoreCase(PropertyReader.prop.getProperty("error_message"))) {
-				System.out.println("Incorrect User!!");
-			} else {
-				continue;
-			}
+			allErrors.addAll(loginpage.errorLists());
 		}
+		if (allErrors.contains(PropertyReader.prop.getProperty("email_id_error"))) {
+			System.out.println("Error!!");
+		}
+
 	}
 
 	@Then("^the user should be on the homepage$")
 	public void user_should_be_on_the_homepage() throws Throwable {
 
 	}
-
 }

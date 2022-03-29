@@ -8,7 +8,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
-import com.qa.pages.LoginPage;
 import com.qa.utils.PropertyReader;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -17,8 +16,6 @@ public class TestBase {
 
 	public static WebDriver driver;
 	public static String browserName = PropertyReader.prop.getProperty("browser");
-
-	public static LoginPage loginpage;
 
 	public static void initialization(String url) {
 		if (browserName.equalsIgnoreCase("chrome")) {

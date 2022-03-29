@@ -1,5 +1,8 @@
 package com.qa.pages;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -38,6 +41,12 @@ public class LoginPage extends TestBase {
 	@FindBy(xpath = "//*[@class='validation-summary-errors']/span")
 	private WebElement errorMessage;
 
+	@FindBy(xpath = "//*[@class='validation-summary-errors']//li")
+	private WebElement incorrect_user;
+
+	@FindBy(xpath = "//*[contains(@class,'error')]")
+	private List<WebElement> error_list;
+
 	int count = 0;
 
 	public void clickOnLoginLink() {
@@ -49,7 +58,6 @@ public class LoginPage extends TestBase {
 	}
 
 	public void enterUserCredentials(String username, String password) {
-
 		interfaceMethods.setText(emailBox, username);
 		interfaceMethods.setText(passwordBox, password);
 	}
@@ -58,12 +66,26 @@ public class LoginPage extends TestBase {
 		loginButton.click();
 	}
 
+	public List<String> errorLists() {
+		List<String> allText = new ArrayList<>();
+		for (WebElement ele : error_list) {
+			// System.out.println(ele.getText());
+			allText.add(ele.getText());
+		}
+		return allText;
+
+	}
+
 	public String getEmailErrorMessage() {
 		return interfaceMethods.getTextOfElement(emailIdErrorMessage);
 	}
 
 	public String getErrorMessage() {
 		return interfaceMethods.getTextOfElement(errorMessage);
+	}
+
+	public String getIncorrectUserMessage() {
+		return interfaceMethods.getTextOfElement(incorrect_user);
 	}
 
 }
