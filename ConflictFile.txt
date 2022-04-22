@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-Hallo, this is a conflict.
-=======
-Hallo, this is a conflict file.
->>>>>>> WindowSystem
