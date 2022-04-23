@@ -7,6 +7,7 @@ import java.util.Map;
 import org.testng.Assert;
 
 import com.qa.base.TestBase;
+import com.qa.pages.HomePage;
 import com.qa.pages.LoginPage;
 import com.qa.utils.PropertyReader;
 
@@ -20,6 +21,7 @@ public class StepDef extends TestBase {
 	public static List<String> allErrors = new ArrayList<String>();
 
 	LoginPage loginpage = null;
+	HomePage homepage = null;
 
 	@Given("^user naviage to the \"([^\"]*)\" page$")
 	public void user_naviage_to_the_page(String url) throws Throwable {
@@ -54,6 +56,13 @@ public class StepDef extends TestBase {
 
 	@Then("^the user should be on the homepage$")
 	public void user_should_be_on_the_homepage() throws Throwable {
+		homepage = new HomePage(driver);
+		System.out.println("Homepage title is:: " + homepage.homepageTitle());
+
+	}
+
+	@Then("^user verify the username on the homepage$")
+	public void user_verify_the_username_on_the_homepage() throws Throwable {
 
 	}
 }
