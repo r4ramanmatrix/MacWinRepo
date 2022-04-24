@@ -7,6 +7,7 @@ import java.util.Map;
 import org.testng.Assert;
 
 import com.qa.base.TestBase;
+import com.qa.pages.BooksPage;
 import com.qa.pages.HomePage;
 import com.qa.pages.LoginPage;
 import com.qa.utils.PropertyReader;
@@ -22,6 +23,7 @@ public class StepDef extends TestBase {
 
 	LoginPage loginpage = null;
 	HomePage homepage = null;
+	BooksPage bookspage = null;
 
 	@Given("^user naviage to the \"([^\"]*)\" page$")
 	public void user_naviage_to_the_page(String url) throws Throwable {
@@ -63,6 +65,23 @@ public class StepDef extends TestBase {
 
 	@Then("^user verify the username on the homepage$")
 	public void user_verify_the_username_on_the_homepage() throws Throwable {
+
+	}
+
+	@Then("^user verify the number of Links and text on homepage$")
+	public void user_verify_the_number_of_Links_and_text_on_homepage() throws Throwable {
+
+	}
+
+	@Then("^user click on the Books page$")
+	public void user_click_on_the_Books_page() throws Throwable {
+		bookspage = new BooksPage(driver);
+		homepage.getMenuItems();
+	}
+
+	@Then("^user count the number of books and sort the books according to price in ascending order$")
+	public void user_count_the_number_of_books_and_sort_the_books_according_to_price_in_ascending_order()
+			throws Throwable {
 
 	}
 }
