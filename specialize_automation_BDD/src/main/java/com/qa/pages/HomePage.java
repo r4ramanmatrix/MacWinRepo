@@ -25,7 +25,7 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "(//*[@class='account'])[1]")
 	private WebElement userDetails;
 
-	@FindBy(xpath = "//*[@class='header']/div")
+	@FindBy(xpath = "//*[@class='header']//a")
 	private List<WebElement> headerLinks;
 
 	public String homepageTitle() {
@@ -40,11 +40,8 @@ public class HomePage extends TestBase {
 		return interfaceMethods.getTextOfElement(userDetails);
 	}
 
-	public void getNumberOfHeaderLinks() {
-		String finalPath = headerLinks + "//li";
-		for (int i = 0; i < headerLinks.size(); i++) {
-			System.out.println();
-		}
+	public int getNumberOfHeaderLinks() {
+		return headerLinks.size();
 	}
 
 }
