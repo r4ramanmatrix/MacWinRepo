@@ -65,4 +65,9 @@ public class StepDef extends TestBase {
 	public void user_verify_the_username_on_the_homepage() throws Throwable {
 
 	}
+	
+	@Then("^user verify the number of Links and text on homepage$")
+	public void user_verify_the_number_of_Links_and_text_on_homepage() throws Throwable {
+	    
+	}
 }
