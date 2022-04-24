@@ -28,6 +28,9 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "//*[@class='header']//a")
 	private List<WebElement> headerLinks;
 
+	@FindBy(xpath = "(//*[@class='header-menu']/ul)[1]/li/a")
+	private List<WebElement> allMenuList;
+
 	public String homepageTitle() {
 		return driver.getTitle();
 	}
@@ -42,6 +45,14 @@ public class HomePage extends TestBase {
 
 	public int getNumberOfHeaderLinks() {
 		return headerLinks.size();
+	}
+
+	public void getMenuItems() {
+		for (int i = 0; i < allMenuList.size(); i++) {
+			if (allMenuList.get(i).getText().equalsIgnoreCase("Books")) {
+				allMenuList.get(i).click();
+			}
+		}
 	}
 
 }

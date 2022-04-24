@@ -12,4 +12,5 @@ Scenario: Validating the Books Page
 		|r4ramanmatrix@gmail.com|	Demo123	|
 	Then the user should be on the homepage 
 	And user click on the Books page 
+	Then user count the number of books and sort the books according to price in ascending order 
 	
