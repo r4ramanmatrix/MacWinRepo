@@ -9,7 +9,6 @@ Scenario: Validating Homepage links
 		|USERNAME				|PASSWORD	|
 		|r4ramanmatrix@gmail.com|	Demo123	|
 	Then the user should be on the homepage 
-	And user verify the username on the homepage 
+	Then  user verify the username on the homepage 
 	And user verify the number of Links and text on homepage 
 	
- 
