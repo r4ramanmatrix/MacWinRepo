@@ -10,15 +10,27 @@ public class PropertyReader {
 
 	static {
 		readProperties();
+		readDBProperties();
 	}
 
 	public static void readProperties() {
 		prop = new Properties();
 		try {
-			FileInputStream fis = new FileInputStream("resources/config.properties");
+			FileInputStream fis = new FileInputStream("configuration/config.properties");
 			prop.load(fis);
 
 			System.out.println(prop.getProperty("browser"));
+		} catch (IOException e) {
+
+		}
+	}
+
+	public static void readDBProperties() {
+		prop = new Properties();
+		try {
+			FileInputStream fis = new FileInputStream("configuration/DBdetails.properties");
+			prop.load(fis);
+
 		} catch (IOException e) {
 
 		}
