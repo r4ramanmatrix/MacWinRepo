@@ -1,7 +1,6 @@
-Feature: Testing the Homepage functionalities. 
+Feature: Testing the Computers page 
 
-@Smoke_Case 
-Scenario: Validating Homepage links 
+Scenario: Validating the Computers Page 
 	Given user naviage to the "http://demowebshop.tricentis.com/" page 
 	When the user click on the login link 
 	Then the user should be on the login page 
@@ -9,6 +8,5 @@ Scenario: Validating Homepage links
 		|USERNAME				|PASSWORD	|
 		|r4ramanmatrix@gmail.com|	Demo123	|
 	Then the user should be on the homepage 
-	Then  user verify the username on the homepage 
-	And user verify the number of Links and text on homepage 
-	
+	And user click on the Computers link 
+	And user verify the types of categories in computers
