@@ -82,6 +82,15 @@ public class StepDef extends TestBase {
 	@Then("^user count the number of books and sort the books according to price in ascending order$")
 	public void user_count_the_number_of_books_and_sort_the_books_according_to_price_in_ascending_order()
 			throws Throwable {
+	}
+
+	@Then("^user click on the Computers link$")
+	public void user_click_on_the_Computers_link() throws Throwable {
+
+	}
+
+	@Then("^user verify the types of categories in computers$")
+	public void user_verify_the_types_of_categories_in_computers() throws Throwable {
 
 	}
 }

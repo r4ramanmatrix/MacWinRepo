@@ -10,7 +10,6 @@ public class PropertyReader {
 
 	static {
 		readProperties();
-		readDBProperties();
 	}
 
 	public static void readProperties() {
@@ -25,14 +24,4 @@ public class PropertyReader {
 		}
 	}
 
-	public static void readDBProperties() {
-		prop = new Properties();
-		try {
-			FileInputStream fis = new FileInputStream("configuration/DBdetails.properties");
-			prop.load(fis);
-
-		} catch (IOException e) {
-
-		}
-	}
 }

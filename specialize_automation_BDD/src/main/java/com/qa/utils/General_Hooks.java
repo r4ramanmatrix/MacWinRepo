@@ -17,6 +17,7 @@ public class General_Hooks extends TestBase {
 		System.out.println("********** Launching Browser *********");
 		System.out.println(name.getName());
 		System.out.println(name.getStatus());
+
 	}
 
 	@After
@@ -28,8 +29,9 @@ public class General_Hooks extends TestBase {
 
 	}
 
-	/*@Before("@Test_01_List_Of_String")
-	public void Test_01_List_Of_String() {
-		System.out.println("Running List of String method before @Before normal hook");
-	}*/
+	/*
+	 * @Before("@Test_01_List_Of_String") public void Test_01_List_Of_String() {
+	 * System.out.
+	 * println("Running List of String method before @Before normal hook"); }
+	 */
 }
