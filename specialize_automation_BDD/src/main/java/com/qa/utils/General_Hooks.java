@@ -12,6 +12,7 @@ public class General_Hooks extends TestBase {
 	// @Before and @After annotations with the method
 	// Specify the package in the runner
 	// Inject the Scenario Object in the hook method
+	
 	@Before
 	public void beforeHook(Scenario name) {
 		System.out.println("********** Launching Browser *********");
